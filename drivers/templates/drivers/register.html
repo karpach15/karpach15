@@ -1,0 +1,45 @@
+{% extends "main/wrapper.html" %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<div class="driver_reg_info">
+		<div class="info">
+			<h1>
+				Зарегестрируйся на гонку и прими участи в гонках полных адреналина и эмоций.
+			</h1>
+			<p>
+				Для регистрации небходими заполнить форму и дождаться подтвержения вашего профиля.
+			</p>
+		</div>
+		<div class="img_border">
+			<div class="img">
+			</div>
+		</div>
+	</div>
+	<div class="driver_reg_form">
+		<form action="reg_result" method="POST">
+			{% csrf_token %}
+			<div class="name">
+				<input name="name" type="text" placeholder="Имя">
+				<input name="surname" type="text" placeholder="Фамилия">
+			</div>
+			<textarea name="about" cols="30" rows="10" placeholder="О вас"></textarea>
+			<input name="date_of_getting_driving_licens" type="text" placeholder="Дата получения прав (ГГГГ-ММ-ДД)">
+			<div class="file_attach">
+				<input name="profile_pic" type="text" placeholder="URL изображения">
+				<input type="button" value="Прикрепить файл">
+			</div>
+			<input id="submit" type="submit" name="submit" value="Зарегестрироваться">
+		</form>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<div class="races_for_bets">
+		{% if races_list %}
+			{% for race in races_list %}
+				<a href="{% url 'bet_confirm' %}"><div class="race_for_bets">
+					<div class="img_background">
+						<div class="img"></div>
+					</div>
+					<div class="info">
+						<h2>{{race.race_name}}</h2>
+						<h2>До гонки</h2>
+					</div>
+				</div></a>
+			{% endfor %}
+		{% endif %}
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<div class="bet_confirm">
+		<div class="content">
+			<div class="choices">
+				<div class="option">
+					<div class="name">Marko Karpats</div>
+					<div class="coeficient">1.6</div>
+				</div>
+			</div>
+			<form action="" method="POST">
+				{% csrf_token %}
+				<h4>Выберите победителя и ставку</h4>
+				<select name="driver_select">
+					<option>-----</option>
+					<option>Marko Karpats</option>
+				</select>
+				<span class="euro_sym"><input id="stake" type="number" step="0.1" value="0.00"></span>
+				<h4>Выберите способ оплаты</h4>
+				<select name="payment_method_select">
+					<option>-----</option>
+					<option>Денежный перевод</option>
+					<option>Надичка</option>
+				</select>
+				<input id="submit" type="submit" name="confirm" value="Подтвердить ставку">
+			</form>
+		</div>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

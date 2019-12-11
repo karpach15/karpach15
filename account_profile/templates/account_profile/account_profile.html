@@ -1,0 +1,25 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<header class="account_header">
+	<div class="pic_block">
+		<div class="img_border">
+			<div class="account_img"></div>
+		</div>
+		<a href="{% url 'logout' %}"><div class="exit">Выйти</div></a>
+	</div>
+	<div class="account_fullname">
+		<h2 class="name">Marko</h2>
+		<h2 class="surname">Karpats</h2>
+	</div>
+</header>
+<section>
+	
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

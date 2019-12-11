@@ -1,0 +1,85 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<h1>Предстоящие гонки</h1>
+	<div class="races">
+		{% if future_races_list %}
+			{% for future_race in future_races_list %}
+				<div class="race_name">{{future_race.race_name}}</div>
+				<div class="race">
+					<div class="info">
+						<div>
+							<h3>Датаи время гонки: <span>{{future_race.time_date|date:"d-M-Y H:i"}}</span></h3>
+							<h3>Старт: <span>{{future_race.start}}</span></h3>
+							<h3>Финиш: <span>{{future_race.finish}}</span></h3>
+							<h3>Растояние: <span>{{future_race.distance}} km</span></h3>
+							<h3>Базовая ставка: <span>{{future_race.base_stake}}€</span></h3>
+							<h3>Текущий фонд гонки: <span>{{current_jackpot}}€</span></h3>
+						</div>
+						<div>
+							<h3>Количество гоньщиков: <span>{{future_race.drivers}}</span></h3>
+							<h3>Количество ставок: <span>{{future_race.stakes}}</span></h3>
+							<br>
+							<h3 class="drivers_list_btn">Список гонщиков</h3>
+						</div>
+					</div>
+					<div class="img_border">
+						<div class="img"></div>
+					</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+
+	<h1>Прошедшие гонки</h1>
+	<div class="races">
+		{% if past_races_list %}
+			{% for past_race in past_races_list %}
+				<div class="race_name">{{past_race.race_name}}</div>
+				<div class="race">
+					<div class="info">
+						<div>
+							<h3>Датаи время гонки: <span>{{past_race.time_date|date:"d-M-Y H:i"}}</span></h3>
+							<h3>Старт: <span>{{past_race.start}}</span></h3>
+							<h3>Финиш: <span>{{past_race.finish}}</span></h3>
+							<h3>Растояние: <span>{{past_race.distance}} km</span></h3>
+							<h3>Базовая ставка: <span>{{past_race.base_stake}}€</span></h3>
+							<h3>Фонд гонки: <span>{{past_race.jackpot}}€</span></h3>
+							<h3>Победитель: <span>{{past_race.winner}}</span></h3>
+						</div>
+						<div>
+							<h3>Количество гоньщиков: <span>{{past_race.drivers}}</span></h3>
+							<h3>Количество ставок: <span>{{past_race.stakes}}</span></h3>
+							<br>
+							<h3 class="drivers_list_btn">Список гонщиков</h3>
+						</div>
+					</div>
+					<div class="img_border">
+						<div class="img"></div>
+					</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+
+	<div class="popUp">
+		<div class="pop_cont">
+			<div class="content">
+				<div class="close">+</div>
+				<div class="race_details">
+					<div class="drivers_list">
+						<h3 class="driver">#1. Marko Karpats</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}
